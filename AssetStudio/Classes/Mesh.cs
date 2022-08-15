@@ -539,12 +539,21 @@ namespace AssetStudio
                         var m_StreamCompression = reader.ReadByte();
                     }
                     var m_IsReadable = reader.ReadBoolean();
+                    if (reader.Game.Name == "BH3")
+                    {
+                        var m_IsHighPrecisionPosition = reader.ReadBoolean();
+                        var m_IsHighPrecisionTangent = reader.ReadBoolean();
+                        var m_IsHighPrecisionUv = reader.ReadBoolean();
+                    }
                     var m_KeepVertices = reader.ReadBoolean();
                     var m_KeepIndices = reader.ReadBoolean();
                 }
                 reader.AlignStream();
-                var m_PackSkinDataToUV2UV3 = reader.ReadBoolean();
-                reader.AlignStream();
+                if (reader.Game.Name == "GI")
+                {
+                    var m_PackSkinDataToUV2UV3 = reader.ReadBoolean();
+                    reader.AlignStream();
+                }
 
                 //Unity fixed it in 2017.3.1p1 and later versions
                 if ((version[0] > 2017 || (version[0] == 2017 && version[1] >= 4)) || //2017.4
@@ -659,7 +668,20 @@ namespace AssetStudio
                 reader.AlignStream();
                 var m_BakedTriangleCollisionMesh = reader.ReadUInt8Array();
                 reader.AlignStream();
-                var m_MeshOptimized = reader.ReadBoolean();
+                if (reader.Game.Name == "GI" | reader.Game.Name == "BH3")
+                {
+                    var m_MeshOptimized = reader.ReadBoolean();
+                }
+            }
+
+            if (reader.Game.Name == "ZZZ")
+            {
+                var m_CloseMeshDynamicCompression = reader.ReadBoolean();
+                reader.AlignStream();
+
+                var m_CompressLevelVertexData = reader.ReadInt32();
+                var m_CompressLevelNormalAndTangent = reader.ReadInt32();
+                var m_CompressLevelTexCoordinates = reader.ReadInt32();
             }
 
             if (version[0] > 2018 || (version[0] == 2018 && version[1] >= 2)) //2018.2 and up
