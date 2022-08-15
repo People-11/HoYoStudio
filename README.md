@@ -40,7 +40,7 @@ How to use:
 
 CLI Version:
 ```
-AssetStudioGUI 0.16.55
+AssetStudioGUI 0.16.60
 Copyright c Perfare 2018-2022
 
   -v, --verbose           Show log messages.
