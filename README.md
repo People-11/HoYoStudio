@@ -1,6 +1,8 @@
 # Future of the Project
 
 Thank you all for your opinions and feedback, according to the majority, option 1 will be implemented.
+
+![image](https://user-images.githubusercontent.com/32140579/184701764-c4a0ac49-053b-44f9-8e04-587808b6e355.png)
 _____________________________________________________________________________________________________________________________
 # HoYoStudio
 Check out the [original AssetStudio project](https://github.com/Perfare/AssetStudio) for more information.
