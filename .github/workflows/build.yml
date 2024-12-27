@@ -38,19 +38,19 @@ jobs:
         run: msbuild /t:AssetStudioGUI:publish /p:Configuration=Release /p:TargetFramework=net6.0-windows /p:SelfContained=false /verbosity:minimal
 
       - name: Upload .Net472 Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: net472
           path: AssetStudioGUI/bin/Release/net472
 
       - name: Upload .Net5 Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: net5.0-windows
           path: AssetStudioGUI/bin/Release/net5.0-windows/publish
 
       - name: Upload .Net6 Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: net6.0-windows
           path: AssetStudioGUI/bin/Release/net6.0-windows/publish
