@@ -3,6 +3,8 @@ name: Build
 on:
   push:
     tags: [ '*' ]
+  watch:
+    types: started
 
   workflow_dispatch:
 
